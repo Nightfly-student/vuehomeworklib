@@ -11,7 +11,7 @@
           >{{ stock.currency }} {{ stock.price.toFixed(4) }}</span
         >
         <input v-model="amount" type="number" /><button
-          @click="addToCart(stock.name, amount)"
+          @click="addToCart(stock.name, amount, stock.price)"
         >
           Buy Stonk
         </button>
@@ -32,8 +32,8 @@ export default {
     stock: Object,
   },
   methods: {
-    addToCart(name, amount) {
-      this.$emit("buy", name, amount);
+    addToCart(name, amount, price) {
+      this.$emit("buy", name, amount, price);
     },
   },
 };
